@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y nodejs
 RUN npm install -g gcr
 
 # Docker Gitlab CI Runner
-ADD https://raw.githubusercontent.com/zartdinov/docker-gitlab-ci-runner/master/run.sh /
+ADD https://raw.githubusercontent.com/zartdinov/docker/master/gitlab-ci-runner/run.sh /
 
 # Chmod
 RUN chmod +x /run.sh
