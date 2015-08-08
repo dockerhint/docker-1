@@ -5,5 +5,6 @@ docker pull zartdinov/gitlab-ci-runner
 ```
 
 ```bash
-docker run -it zartdinov/gitlab-ci-runner -e 'GITLAB_REGISTRATION_TOKEN=your_token_here'
+docker run -e 'GITLAB_REGISTRATION_TOKEN=your_token_here'
+           -it zartdinov/gitlab-ci-runner
 ```
