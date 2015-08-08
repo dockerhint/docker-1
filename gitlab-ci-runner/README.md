@@ -1,10 +1,9 @@
-# Docker Gitlab CI Runner
+# Gitlab CI Runner
 
 ```bash
-docker pull zartdinov/docker-gitlab-ci-runner
+docker pull zartdinov/gitlab-ci-runner
 ```
 
 ```bash
-docker run -e 'GITLAB_REGISTRATION_TOKEN=your_token_here'
-           -it zartdinov/docker-gitlab-ci-runner
+docker run -it zartdinov/gitlab-ci-runner -e 'GITLAB_REGISTRATION_TOKEN=your_token_here'
 ```

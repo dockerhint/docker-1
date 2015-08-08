@@ -14,13 +14,19 @@ RUN apt-get update && apt-get install -y nodejs
 # Gitlab CI Runner 
 RUN npm install -g gcr
 
-# Docker Gitlab CI Runner
-ADD https://raw.githubusercontent.com/zartdinov/docker/master/gitlab-ci-runner/run.sh /
-
-# Chmod
-RUN chmod +x /run.sh
-
 # Default Gitlab CI Url
 ENV GITLAB_CI_URL https://ci.gitlab.com
 
-ENTRYPOINT ["/run.sh"]
+RUN expect -c '\
+    
+    spawn gcr \
+    
+    expect "url:" \
+    send   "$env(GITLAB_CI_URL)\r" \
+    
+    expect "Token:" \
+    send   "$env(GITLAB_REGISTRATION_TOKEN)\r" \
+    
+    interact \
+    
+'
