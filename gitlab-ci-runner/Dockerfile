@@ -17,16 +17,16 @@ RUN npm install -g gcr
 # Default Gitlab CI Url
 ENV GITLAB_CI_URL https://ci.gitlab.com
 
-RUN expect -c '\
+ENTRYPOINT expect -c '\
     
-    spawn gcr \
+    spawn gcr; \
     
-    expect "url:" \
-    send   "$env(GITLAB_CI_URL)\r" \
+    expect "url:"; \
+    send   "$env(GITLAB_CI_URL)\r"; \
     
-    expect "Token:" \
-    send   "$env(GITLAB_REGISTRATION_TOKEN)\r" \
+    expect "Token:"; \
+    send   "$env(GITLAB_REGISTRATION_TOKEN)\r"; \
     
-    interact \
+    interact; \
     
 '
