@@ -6,7 +6,7 @@ RUN apk --update add --upgrade --virtual build-dependencies \
     g++
 
 WORKDIR go
-RUN export GOPATH=`$PWD`
+RUN export GOPATH="$PWD"
 
 WORKDIR src
 WORKDIR github.com/sammy007/ether-proxy
