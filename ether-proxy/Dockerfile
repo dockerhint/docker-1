@@ -1,18 +1,18 @@
-FROM alpine
+FROM alpine:3.3
 
 RUN apk --update add --upgrade --virtual build-dependencies \
     go \
     git \
     g++
 
-ENV GOPATH $HOME
+ENV GOPATH /go
 
-WORKDIR $GOPATH/src/github.com/sammy007/ether-proxy
+RUN git clone https://github.com/sammy007/ether-proxy.git /go/src/sammy007/ether-proxy && \
+    cd /go/src/sammy007/ether-proxy
+    go get; exit 0 && \
+    go build -o /bin/ether-proxy -ldflags "-s" main.go
 
-RUN go get github.com/sammy007/ether-proxy; exit 0 &&  cd $PWD \
-    go build main.go && \
-    go clean
+RUN apk del --purge build-dependencies && \
+    rm -rf /go
 
-RUN apk del --purge build-dependencies
-
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ether-proxy
