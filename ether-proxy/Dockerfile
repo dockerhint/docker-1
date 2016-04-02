@@ -5,15 +5,13 @@ RUN apk --update add --upgrade --virtual build-dependencies \
     git \
     g++
 
-ENV GOPATH $HOME/go
+ENV GOPATH $HOME
 
-WORKDIR $GOPATH
-WORKDIR src
-WORKDIR github.com/sammy007/ether-proxy
+WORKDIR $GOPATH/src/github.com/sammy007/ether-proxy
 
-RUN git clone https://github.com/sammy007/ether-proxy.git $PWD && cd $PWD
-
-RUN go build main.go && go clean
+RUN go get github.com/sammy007/ether-proxy.git; exit 0 &&  cd $PWD \
+    go build main.go && \
+    go clean
 
 RUN apk del --purge build-dependencies
 
