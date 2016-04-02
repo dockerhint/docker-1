@@ -5,6 +5,7 @@ RUN apk --update add --upgrade --virtual build-dependencies \
     git \
     g++
 
+ENV HOME $HOME
 WORKDIR $HOME
 WORKDIR go
 RUN echo $HOME
