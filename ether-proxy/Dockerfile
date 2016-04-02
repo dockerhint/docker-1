@@ -11,4 +11,4 @@ RUN go get; exit 0 && go build -o /bin/ether-proxy -ldflags "-s" main.go
 
 RUN apk del --purge build-deps && rm -rf $GOPATH 
 
-ENTRYPOINT ["bin/ether-proxy"]
+ENTRYPOINT ["/bin/ether-proxy"]
