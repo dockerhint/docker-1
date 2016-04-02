@@ -9,7 +9,7 @@ ENV GOPATH $HOME
 
 WORKDIR $GOPATH/src/github.com/sammy007/ether-proxy
 
-RUN go get github.com/sammy007/ether-proxy.git; exit 0 &&  cd $PWD \
+RUN go get github.com/sammy007/ether-proxy; exit 0 &&  cd $PWD \
     go build main.go && \
     go clean
 
