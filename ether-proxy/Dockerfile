@@ -6,7 +6,7 @@ RUN apk --update add --upgrade --virtual build-dependencies \
     g++
 
 WORKDIR go
-RUN export GOPATH=/go
+RUN export GOPATH="/go"
 RUN echo $GOPATH
 
 WORKDIR src
