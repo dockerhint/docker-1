@@ -7,6 +7,7 @@ RUN apk --update add --upgrade --virtual build-dependencies \
 
 WORKDIR $HOME
 WORKDIR go
+RUN echo $HOME
 RUN echo export GOPATH=$PWD
 RUN export GOPATH=$PWD
 RUN echo $GOPATH
