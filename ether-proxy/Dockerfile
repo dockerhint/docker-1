@@ -9,7 +9,7 @@ RUN apk --update add -ut build-deps \
     g++
 
 RUN git clone https://$PACKAGE.git $GOPATH/src/$PACKAGE && \
-    cd $_ && \
+    cd $GOPATH/src/$PACKAGE && \
     go get; exit 0 && \
     go build -o /bin/ether-proxy -ldflags "-s" main.go
 
