@@ -15,4 +15,4 @@ RUN go get github.com/sammy007/ether-proxy.git; exit 0 &&  cd $PWD \
 
 RUN apk del --purge build-dependencies
 
-ENTRYPOINT main
+ENTRYPOINT ["/bin/sh"]
