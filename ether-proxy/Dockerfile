@@ -5,7 +5,7 @@ RUN apk --update add --upgrade --virtual build-dependencies \
     git \
     g++
 
-ENV GOPATH /home/go
+ENV GOPATH /root/go
 
 WORKDIR $GOPATH
 WORKDIR src
